@@ -32,14 +32,17 @@ export function UserProvider({ children }: { children: ReactNode }) {
       return user;
     }
 
-    const supabase = createSupabaseClient();
+    // Stub out user
+    const newUser = {
+      id: "user-id",
+      aud: "authenticated",
+      role: "user",
+      email: "user@example.com"
+    } as User;
 
-    const {
-      data: { user: supabaseUser },
-    } = await supabase.auth.getUser();
-    setUser(supabaseUser || undefined);
+    setUser(newUser);
     setLoading(false);
-    return supabaseUser || undefined;
+    return newUser;
   }
 
   const contextValue: UserContentType = {
