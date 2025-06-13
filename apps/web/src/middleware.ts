@@ -1,6 +1,6 @@
 import { type NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function middleware(_request: NextRequest) {
   // Skip middleware for session updates
   // return await updateSession(request);
 }
